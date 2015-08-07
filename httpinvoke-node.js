@@ -320,7 +320,10 @@ inputHeaders = (function(input) {
 })(options.headers || {});
 outputHeaders = {};
 exposedHeaders = options.corsExposedHeaders || [];
-exposedHeaders.push.apply(exposedHeaders, ['Cache-Control', 'Content-Language', 'Content-Type', 'Content-Length', 'Expires', 'Last-Modified', 'Pragma', 'Content-Range', 'Content-Encoding']);
+var corsExposedHeadersDefaults = typeof options.corsExposedHeadersDefaults !== 'undefined' ? options.corsExposedHeadersDefaults : true;
+if(corsExposedHeadersDefaults) {
+    exposedHeaders.push.apply(exposedHeaders, ['Cache-Control', 'Content-Language', 'Content-Type', 'Content-Length', 'Expires', 'Last-Modified', 'Pragma', 'Content-Range', 'Content-Encoding']);
+}
 /*************** COMMON convert and validate parameters **************/
 var validateInputHeaders = function(headers) {
     var noSec = httpinvoke.forbiddenInputHeaders.indexOf('sec-*') >= 0;
