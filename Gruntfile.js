@@ -61,7 +61,7 @@ module.exports = function(grunt) {
                 'unused' : true,
                 'strict' : true,
                 'trailing' : true,
-                'maxparams' : 0,
+                'maxparams' : 5,
                 'maxdepth' : 0,
                 'maxstatements' : 0,
                 'maxcomplexity' : 0,
